@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+option go_package = "proto/sample";
+
+message MessageOne{
+    string id = 1;
+    string msg = 2;
+}
+
+message MessageID{
+    string id = 1;
+}
+
+service MessageService{
+    rpc getMessage(MessageID) returns (MessageOne){
+        option (google.api.http) = {
+            get: "/v1/msg/{id}"
+          };
+    }
+
+    rpc createMessage(MessageOne) returns (MessageID){
+        option (google.api.http) = {
+            post: "/v1/msg"
+            body: "*"
+        };
+    }
+    
+}

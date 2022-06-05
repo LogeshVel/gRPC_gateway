@@ -1,4 +1,4 @@
-module gRPC_gateway
+module github.com/LogeshVel/gRPC_gateway
 
 go 1.18
 

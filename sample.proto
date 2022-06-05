@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/api/annotations.proto";
 
-option go_package = "proto/sample";
+option go_package = "github.com/LogeshVel/gRPC_gateway/proto/sample";
 
 message MessageOne{
     string id = 1;

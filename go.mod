@@ -3,7 +3,6 @@ module github.com/LogeshVel/gRPC_gateway
 go 1.18
 
 require (
-	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
 	google.golang.org/api v0.82.0
 	google.golang.org/genproto v0.0.0-20220602131408-e326c6e8e9c8

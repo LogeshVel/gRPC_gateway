@@ -50,19 +50,19 @@ func main() {
 	if err != nil {
 		log.Fatalln("Failed to dial server:", err)
 	}
-
+	// MuxServe objct
 	gwmux := runtime.NewServeMux()
-	// Register Greeter
+	// Register MessageService handler with the client connection and Mux object
 	err = pb.RegisterMessageServiceHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		log.Fatalln("Failed to register gateway:", err)
 	}
-
+	// Create HTTP Server using the socket and the Mux handler
 	gwServer := &http.Server{
 		Addr:    gwSocket,
 		Handler: gwmux,
 	}
-
+	// Make the server to Listen and Serve
 	log.Println("Serving gRPC-Gateway on ", gwSocket)
 	log.Fatalln(gwServer.ListenAndServe())
 
